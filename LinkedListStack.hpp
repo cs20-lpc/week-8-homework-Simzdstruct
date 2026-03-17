@@ -9,8 +9,10 @@ using namespace std;
 template <typename T>
 struct Node {
     T data;
+    
+    int length;
     Node* next;
-    Node(T value) : data(value), next(nullptr) {}
+    Node(T value) : data(value), length(0), next(nullptr) {}
 };
 
 // Stack class using linked list
@@ -18,7 +20,7 @@ template <typename T>
 class LinkedListStack : public Stack<T> {
 private:
     Node<T> * top; // points to the top node of stack
-
+    int length;
     // copy the state of the argument stack to `this`
     void copy(const LinkedListStack<T>&);
 public:
@@ -27,7 +29,7 @@ public:
         LinkedListStack();
 
         // copy constructor
-        LinkedListStack(const LinkedListStack<T>&);
+        LinkedListStack(const LinkedListStack<T>& );
 
         // overloaded assignment operator
         LinkedListStack<T>& operator=(const LinkedListStack<T>&);
